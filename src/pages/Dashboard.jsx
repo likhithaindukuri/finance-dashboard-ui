@@ -1,10 +1,13 @@
 import SummaryCard from "../components/dashboard/SummaryCard";
-import { transactions } from "../data/mockData";
+import { useAppContext } from "../context/AppContext";
 import BalanceChart from "../components/dashboard/BalanceChart";
 import SpendingChart from "../components/dashboard/SpendingChart";
 import Insights from "../components/dashboard/Insights";
 
 function Dashboard() {
+  // ✅ get transactions from context
+  const { transactions } = useAppContext();
+
   // calculate totals
   const totalIncome = transactions
     .filter((t) => t.type === "income")
@@ -61,6 +64,8 @@ function Dashboard() {
         <BalanceChart data={chartData} />
         <SpendingChart data={spendingData} />
       </div>
+
+      {/* Insights */}
       <div className="mt-8">
         <Insights transactions={transactions} />
       </div>

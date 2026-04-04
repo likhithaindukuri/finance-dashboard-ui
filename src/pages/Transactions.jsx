@@ -1,11 +1,10 @@
 import { useState } from "react";
 import TransactionTable from "../components/transactions/TransactionTable";
-import { transactions as mockTransactions } from "../data/mockData";
 import { useAppContext } from "../context/AppContext";
 
 function Transactions() {
-
-  const { role } = useAppContext();
+  // ✅ get role + transactions from context
+  const { role, transactions } = useAppContext();
 
   // search input
   const [search, setSearch] = useState("");
@@ -14,7 +13,7 @@ function Transactions() {
   const [typeFilter, setTypeFilter] = useState("all");
 
   // filtering logic
-  const filteredTransactions = mockTransactions.filter((t) => {
+  const filteredTransactions = transactions.filter((t) => {
     const matchesSearch = t.description
       .toLowerCase()
       .includes(search.toLowerCase());
@@ -55,6 +54,7 @@ function Transactions() {
         </select>
       </div>
 
+      {/* ✅ Admin Only Button */}
       {role === "admin" && (
         <button className="mb-4 bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
           + Add Transaction
