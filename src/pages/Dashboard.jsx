@@ -2,6 +2,7 @@ import SummaryCard from "../components/dashboard/SummaryCard";
 import { transactions } from "../data/mockData";
 import BalanceChart from "../components/dashboard/BalanceChart";
 import SpendingChart from "../components/dashboard/SpendingChart";
+import Insights from "../components/dashboard/Insights";
 
 function Dashboard() {
   // calculate totals
@@ -59,6 +60,9 @@ function Dashboard() {
       <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <BalanceChart data={chartData} />
         <SpendingChart data={spendingData} />
+      </div>
+      <div className="mt-8">
+        <Insights transactions={transactions} />
       </div>
     </div>
   );
