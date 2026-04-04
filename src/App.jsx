@@ -1,8 +1,16 @@
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Transactions from "./pages/Transactions";
+import MainLayout from "./layouts/MainLayout";
+
 function App() {
   return (
-    <div>
-      <h1>Finance Dashboard UI</h1>
-    </div>
+    <MainLayout>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/transactions" element={<Transactions />} />
+      </Routes>
+    </MainLayout>
   );
 }
 
