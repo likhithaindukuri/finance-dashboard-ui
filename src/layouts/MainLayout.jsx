@@ -1,28 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function MainLayout({ children }) {
-  return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      
-      {/* Sidebar */}
-      <aside
-        style={{
-          width: "220px",
-          background: "#111827",
-          color: "white",
-          padding: "20px"
-        }}
-      >
-        <h2>Finance UI</h2>
+  const location = useLocation();
 
-        <nav style={{ marginTop: "20px" }}>
-          <p><Link to="/" style={{ color: "white" }}>Dashboard</Link></p>
-          <p><Link to="/transactions" style={{ color: "white" }}>Transactions</Link></p>
+  const navItem = (path, label) => (
+    <Link
+      to={path}
+      className={`block px-3 py-2 rounded-lg transition ${
+        location.pathname === path
+          ? "bg-gray-700"
+          : "hover:bg-gray-800"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+
+  return (
+    <div className="flex min-h-screen bg-gray-100">
+
+      {/* Sidebar */}
+      <aside className="w-60 bg-gray-900 text-white p-5">
+        <h2 className="text-xl font-semibold">Finance UI</h2>
+
+        <nav className="mt-6 space-y-2">
+          {navItem("/", "Dashboard")}
+          {navItem("/transactions", "Transactions")}
         </nav>
       </aside>
 
-      {/* Main Content */}
-      <main style={{ flex: 1, padding: "20px" }}>
+      {/* Content */}
+      <main className="flex-1 p-6">
         {children}
       </main>
 
