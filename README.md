@@ -83,15 +83,6 @@ src/
 ├── App.jsx
 └── main.jsx
 
----
-- **components/**: Reusable UI components  
-- **pages/**: Individual pages (Dashboard, Transactions)  
-- **layouts/**: Main layout with sidebar and content area  
-- **context/**: React context for state management  
-- **data/**: Mock data for transactions  
-- **utils/**: Helper functions  
-
----
 
 ## Technologies Used
 
