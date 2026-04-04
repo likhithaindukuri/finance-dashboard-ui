@@ -105,7 +105,7 @@ src/
 
 ## Setup Instructions
 
-1. **Clone the repository**  
+1. **Clone the repository**
 ```bash
 git clone https://github.com/likhithaindukuri/finance-dashboard-ui.git
 cd finance-dashboard-ui
