@@ -1,8 +1,12 @@
 import { useState } from "react";
 import TransactionTable from "../components/transactions/TransactionTable";
 import { transactions as mockTransactions } from "../data/mockData";
+import { useAppContext } from "../context/AppContext";
 
 function Transactions() {
+
+  const { role } = useAppContext();
+
   // search input
   const [search, setSearch] = useState("");
 
@@ -50,6 +54,12 @@ function Transactions() {
           <option value="expense">Expense</option>
         </select>
       </div>
+
+      {role === "admin" && (
+        <button className="mb-4 bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+          + Add Transaction
+        </button>
+      )}
 
       {/* Table */}
       <TransactionTable transactions={filteredTransactions} />
