@@ -83,6 +83,7 @@ src/
 ├── App.jsx
 └── main.jsx
 
+---
 - **components/**: Reusable UI components  
 - **pages/**: Individual pages (Dashboard, Transactions)  
 - **layouts/**: Main layout with sidebar and content area  
