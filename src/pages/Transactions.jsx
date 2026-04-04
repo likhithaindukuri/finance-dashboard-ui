@@ -3,7 +3,7 @@ import TransactionTable from "../components/transactions/TransactionTable";
 import { useAppContext } from "../context/AppContext";
 
 function Transactions() {
-  // ✅ get role + transactions from context
+  // get role + transactions from context
   const { role, transactions } = useAppContext();
 
   // search input
@@ -54,7 +54,7 @@ function Transactions() {
         </select>
       </div>
 
-      {/* ✅ Admin Only Button */}
+      {/* Admin Only Button */}
       {role === "admin" && (
         <button className="mb-4 bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
           + Add Transaction

@@ -36,7 +36,7 @@ function Insights({ transactions }) {
     let message = "";
   
     if (savings > 0) {
-      message = "You are saving money this month 👍";
+      message = "You are saving money this month ";
     } else if (savings < 0) {
       message = "Expenses exceeded income ⚠️";
     } else {
@@ -51,12 +51,12 @@ function Insights({ transactions }) {
   
         <div className="space-y-3 text-gray-700">
           <p>
-            💸 Highest spending category:
+            Highest spending category:
             <span className="font-medium"> {highestCategory}</span>
           </p>
   
           <p>
-            📊 Monthly savings:
+            Monthly savings:
             <span className="font-medium">
               {" "}
               ₹ {savings.toLocaleString()}

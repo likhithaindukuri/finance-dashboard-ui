@@ -5,7 +5,7 @@ import SpendingChart from "../components/dashboard/SpendingChart";
 import Insights from "../components/dashboard/Insights";
 
 function Dashboard() {
-  // ✅ get transactions from context
+  // get transactions from context
   const { transactions } = useAppContext();
 
   // calculate totals
