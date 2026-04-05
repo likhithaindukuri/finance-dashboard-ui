@@ -58,7 +58,9 @@ An interactive finance dashboard built with **React**, **Vite**, **Tailwind CSS*
 
 ## Demo
 
-<video src="public/FinanceDashboard.mp4" controls width="100%"></video>
+**Screen recording:** [FinanceDashboard.mp4 — watch on Google Drive](https://drive.google.com/file/d/1oTLNsEMGketWPQJn4f2sMMbKcs4uaNKQ/view?usp=drive_link)
+
+https://drive.google.com/file/d/1oTLNsEMGketWPQJn4f2sMMbKcs4uaNKQ/view?usp=drive_link
 
 ---
 
