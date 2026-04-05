@@ -58,9 +58,9 @@ An interactive finance dashboard built with **React**, **Vite**, **Tailwind CSS*
 
 ## Demo
 
-**Screen recording:** [FinanceDashboard.mp4 — watch on Google Drive](https://drive.google.com/file/d/1oTLNsEMGketWPQJn4f2sMMbKcs4uaNKQ/view?usp=drive_link)
+**Live app:** [finance-dashboard-ui-beta-green.vercel.app](https://finance-dashboard-ui-beta-green.vercel.app/)
 
-https://drive.google.com/file/d/1oTLNsEMGketWPQJn4f2sMMbKcs4uaNKQ/view?usp=drive_link
+https://finance-dashboard-ui-beta-green.vercel.app/
 
 ---
 
