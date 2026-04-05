@@ -1,143 +1,90 @@
 # Finance Dashboard UI
 
-**Frontend Developer Intern Assignment – Zorvyn**
+**Frontend Developer Intern Assignment**
 
-An interactive finance dashboard built with React demonstrating:
-
-- Modular UI components  
-- State management  
-- Role-based UI behavior  
-- Data visualization  
-- Responsive design  
-- Mock data handling  
+An interactive finance dashboard built with **React**, **Vite**, **Tailwind CSS**, and **Recharts**. It uses **mock data** plus **local persistence** so you can demonstrate filtering, role-based UI, and edits without a backend.
 
 ---
 
-## Project Overview
+## What’s included (assignment coverage)
 
-This project simulates a user interface for tracking financial activity. Users can view their overall financial summary, explore transactions, and gain insights into their spending patterns. The application emphasizes clean design, intuitive navigation, and functional frontend architecture.
+### Dashboard overview
 
----
+- Summary cards: **Total balance**, **Total income**, **Total expenses**
+- **Balance trend** (time-based line chart; transactions sorted by date for a correct running balance)
+- **Spending breakdown** (categorical donut chart)
+- **Insights**: highest spending category, net savings, **month-over-month expense comparison** when multiple months exist, plus a short observation
+- **Empty state** when there are no transactions
 
-## Features Implemented
+### Transactions
 
-### 1. Dashboard Overview
-- **Summary Cards:** Display Total Balance, Total Income, and Total Expenses.  
-- **Balance Trend Chart:** Time-based visualization of running balance using Recharts.  
-- **Responsive Layout:** Works on different screen sizes without breaking layout.  
+- Table: **Date**, **Description**, **Category**, **Type**, **Amount**
+- **Search** across description, category, and type
+- **Filters**: type (all / income / expense), **category**
+- **Sort**: date (new/old), amount (high/low)
+- **Group by**: none, **category**, or **month** (section headers in the table)
+- **Export**: **CSV** and **JSON** of the **currently filtered & sorted** list
 
-### 2. Transactions Page
-- **Transactions Table:** Lists all transactions with Date, Amount, Category, and Type.  
-- **Search & Filter:** Quickly find transactions by description, category, or type.  
+### Role-based UI (simulated)
 
-### 3. Role-Based UI
-- **Admin Role:** Can simulate adding/editing transactions (frontend only).  
-- **Viewer Role:** Can only view data.  
-- **Role Switching:** Done via a dropdown toggle.  
+- **Viewer**: read-only; no add/edit controls
+- **Admin**: **Add transaction**, **Edit** per row, changes persisted in **localStorage**
+- Role stored in localStorage and switchable from the sidebar
 
-### 4. Insights Section
-- Auto-calculated financial insights:  
-  - Highest spending category  
-  - Monthly comparison of expenses  
-  - Quick observations from mock data  
+### State management
 
-### 5. State Management
-- Application state handled via React Context API.  
-- Tracks transactions, filters, and selected user role.  
+- **React Context** (`AppContext`): transactions, role, theme, and CRUD helpers
 
-### 6. Data Handling
-- Uses mock JSON data (`src/data/mockData.js`) to simulate transactions.  
-- Includes data persistence using local storage.  
+### UI / UX
 
-### 7. UI / UX Enhancements
-- Full-width layout with professional sidebar navigation.  
-- Clean, modern UI using Tailwind CSS.  
-- Reduced top padding for immediate content visibility.  
-- Responsive and accessible design for laptop screens.  
+- **Dark mode** toggle (persisted); `index.html` snippet avoids a flash of the wrong theme on load
+- **Responsive** layout: stacked header/nav on small screens, sidebar + main on `md+`
+- **Transitions**: hover states, page enter animation, modal backdrop
+- Full-width app shell (no fixed `1126px` root container)
 
 ---
 
-## Project Structure
+## Optional enhancements (implemented)
 
-```plaintext
-src/
-│
-├── components/
-│   ├── common/
-│   ├── dashboard/
-│   │   ├── SummaryCard.jsx
-│   │   └── BalanceChart.jsx
-│   └── transactions/
-├── context/
-│   └── AppContext.jsx
-├── data/
-│   └── mockData.js
-├── layouts/
-│   └── MainLayout.jsx
-├── pages/
-│   ├── Dashboard.jsx
-│   └── Transactions.jsx
-├── styles/
-├── utils/
-│   └── helpers.js
-├── App.jsx
-└── main.jsx
-
-
-## Technologies Used
-
-- React (Frontend Framework)  
-- Vite (Fast React project setup)  
-- Tailwind CSS (Styling & layout)  
-- Recharts (Charts & data visualization)  
-- React Router DOM (Routing)  
-- Local Storage (Data persistence)  
+| Feature | Notes |
+|--------|--------|
+| Dark mode | Sidebar toggle + `dark` class on `<html>`; chart/tooltip colors follow theme |
+| Data persistence | `transactions`, `role`, `theme` in `localStorage` |
+| Animations | `.animate-page-enter` for route content; transitions on cards, rows, modal |
+| Export | `src/utils/export.js` — CSV + JSON download |
+| Advanced filter / group | Category filter + group by category or month |
 
 ---
 
-## Setup Instructions
+## Demo
 
-1. **Clone the repository**
+<video src="assets/screen-recording.mp4" controls width="100%"></video>
+
+---
+
+## Tech stack
+
+- React 19, Vite 8, React Router 7  
+- Tailwind CSS 4 (`@tailwindcss/vite`)  
+- Recharts  
+
+---
+
+## Setup
+
 ```bash
 git clone https://github.com/likhithaindukuri/finance-dashboard-ui.git
 cd finance-dashboard-ui
-
-## Setup Instructions
-
-2. **Install dependencies**
-```bash
 npm install
-
-3. **Run the development server**
-```bash
 npm run dev
+```
 
-## Approach & Highlights
+## Project layout (high level)
 
-- Focused on modular and scalable folder structure for easy maintenance.
-- Used React Context for simple, effective state management.
-- Created dynamic charts using running balance calculations.
-- Implemented role-based UI simulation to differentiate admin and viewer functionality.
-- Clean layout with full-width dashboard to maximize screen space.
-- Reduced extra padding to improve content visibility from top-left.
-
----
-
-## Screenshots / Demo
-
-*(Optional: Add screenshots of your dashboard pages or deployed app here)*
-
----
-
-## Future Enhancements (Optional)
-
-- Dark mode toggle for professional UI
-- CSV/JSON export of transactions
-- Animations and transitions for better UX
-- Advanced filtering/grouping options
-
----
-
-## Conclusion
-
-This project demonstrates frontend development skills, UI design thinking, and state management. All core requirements of the Zorvyn Finance Dashboard assignment are implemented with a professional, clean, and responsive design.
+- `src/context/AppContext.jsx` — global state & persistence  
+- `src/pages/` — Dashboard, Transactions  
+- `src/components/dashboard/` — cards, charts, insights  
+- `src/components/transactions/` — table, add/edit modal  
+- `src/data/mockData.js` — seed transactions (includes two months for insights)  
+- `src/utils/transactions.js` — sort & group helpers  
+- `src/utils/export.js` — CSV / JSON export 
